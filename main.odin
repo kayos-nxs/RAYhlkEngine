@@ -24,9 +24,7 @@ main :: proc() {
     r.InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE)
     r.SetTargetFPS(60)
 
-    // sprite_load(&sprite, "data/testChar.png")
-	append(&entity_list, player)
-    sprite_load(&player.sprites, "data/testChar.png")
+    init_and_load()
 
     for !r.WindowShouldClose() {
 
@@ -35,7 +33,8 @@ main :: proc() {
         r.BeginDrawing()
             r.ClearBackground(r.RAYWHITE)
 
-            section_draw()
+                section_draw()
+
 
         r.EndDrawing()
     }
@@ -43,5 +42,6 @@ main :: proc() {
     r.CloseWindow()
 
     r.UnloadTexture( player.sprites.tex )
-    delete(entity_list)
+    r.UnloadTexture( box._character_icon )
+    r.UnloadTexture( bg._image )
 }

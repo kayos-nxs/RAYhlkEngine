@@ -16,7 +16,7 @@ private - _snake_case (_ on beginning)
 import r "vendor:raylib"
 import f "core:fmt"
 
-player: Entity = Entity {
+player := Character {
 	sprites = Sprite {
 		frame_size = r.Vector2{ 100, 100 },
 	    frames_wide = 9,

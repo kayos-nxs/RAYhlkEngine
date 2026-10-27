@@ -16,14 +16,10 @@ private - _snake_case (_ on beginning)
 import r "vendor:raylib"
 import f "core:fmt"
 
-entity_list: [dynamic]Entity
-
-Entity :: struct {
-    sprites: Sprite,
-    pos: r.Vector2,
-
-    hp: u8,
-    speed: u8,
-
-    isMoving: bool,
+camera: r.Camera2D = r.Camera2D {
+	target = r.Vector2{player.pos.x + 20.0, player.pos.y + 20.0},
+	offset = r.Vector2{ f32(SCREEN_WIDTH / 2.0), f32(SCREEN_HEIGHT / 2.0)},
+	rotation = 0.0,
+	zoom = 1.0,
 }
+

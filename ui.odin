@@ -15,7 +15,17 @@ private - _snake_case (_ on beginning)
 
 import r "vendor:raylib"
 import f "core:fmt"
+import str "core:strings"
 
-User_Interface :: struct {
-	
+hpText: cstring = ""
+
+ui_load :: proc(p: ^Character) {
+	concatHp := str.concatenate({"HP: ", f.tprint(p.hp)})
+	hpText = str.clone_to_cstring(concatHp)
+	defer delete(hpText)
+	defer delete(concatHp)
+}
+
+ui_draw :: proc() {
+    r.DrawText(hpText, 0, 0, 20, r.BLACK)
 }
